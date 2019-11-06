@@ -17,6 +17,8 @@ public:
 
     void AddBlock(Block bNew);
 
+    int AddBlockv2(vector<Block> bNew, int limit);
+
 private:
     vector<Block> _Chain;
 

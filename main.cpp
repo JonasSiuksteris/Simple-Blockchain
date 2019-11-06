@@ -9,11 +9,11 @@ int main()
     std::vector<User> Users;
     Blockchain bChain = Blockchain();
     int choice = 0, amount;
-    while(choice != 3)
+    while(choice != 4)
     {
-        cout << "1 - Generuoti naujus vartotojus\n2 - Vykdyti transakcijas\n3 - Iseiti\n" << endl;
+        cout << "1 - Generuoti naujus vartotojus\n2 - Vykdyti transakcijas\n3 - Vykdyti transakcijas(patobulinta)\n4 - Iseiti\n" << endl;
         cin >> choice;
-        while(!(choice == 1 || choice == 2 || choice == 3) || !cin){
+        while(!(choice == 1 || choice == 2 || choice == 3 || choice == 4) || !cin){
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Bloga ivestis, kartokite!" << endl;
@@ -37,6 +37,17 @@ int main()
                 RandomTransactions(amount, Users, bChain);
                 break;
             case 3:
+                if(Users.empty())
+                {
+                    cout << "Pirma sukurkite vartotojus" << endl;
+                    break;
+                }
+
+                cout << "Iveskite norimu transakciju skaiciu(int)" << endl;
+                cin >> amount;
+                RandomTransactionsv2(amount, Users, bChain);
+                break;
+            case 4:
                 cout << "Programa uzdaroma" << endl;
         }
     }

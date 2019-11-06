@@ -26,9 +26,15 @@ public:
 
     void MineBlock(uint32_t Difficulty);
 
+    int MineBlockv2(uint32_t Difficulty, int limit);
+
     void SetMarkel();
 
     void NewTransaction(string name1, string name2, int amount);
+
+    void RemoveLastTransaction();
+
+    vector<string> GetLastTransaction();
 private:
     time_t _Time;
     string _Version;
