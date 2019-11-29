@@ -1,7 +1,3 @@
-//
-// Created by Jonas on 2019-11-14.
-//
-
 #include <random>
 #include <cstdint>
 #include <iomanip>
@@ -57,7 +53,6 @@ void inline RandomTransactionsv2(int count, vector<User>& Users, Blockchain& bCh
             int amount = Ramount(eng);
 
             Blocks[j].NewTransaction(Users[first].GetName(), Users[second].GetName(), amount);
-            //cout << Blocks[j].GetLastTransaction()[0] << " " << Blocks[j].GetLastTransaction()[3] << endl;
             //Checking if transaction is valid
             if(Hash64(Users[first].GetName() + Users[second].GetName() + to_string(amount)) != Blocks[j].GetLastTransaction()[0])
             {
@@ -77,6 +72,7 @@ void inline RandomTransactionsv2(int count, vector<User>& Users, Blockchain& bCh
                 success = bChain.AddBlockv2(Blocks,cyclecount * 10000);
                 cyclecount ++;
             }
+            cout << 1;
         }
 
 

@@ -1,7 +1,3 @@
-//
-// Created by Jonas on 2019-12-12.
-//
-
 #include "User.h"
 #include "Hash.h"
 

@@ -1,6 +1,3 @@
-//
-// Created by Jonas on 2019-11-14.
-//
 #include "Blockchain.h"
 
 Blockchain::Blockchain() {
@@ -20,7 +17,7 @@ int Blockchain::AddBlockv2(vector<Block> bNew, int limit) {
     while(cycles < 5 && success == 0){
         bNew[cycles].PrevHash = _GetLastBlock().GetHash();
         success = bNew[cycles].MineBlockv2(bNew[cycles].GetDifficulty(),limit);
-        bNew[cycles].SetMarkel();
+        bNew[cycles].create_merkle();
         cycles ++;
     }
     if(cycles == 5)

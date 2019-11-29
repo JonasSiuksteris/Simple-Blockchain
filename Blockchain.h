@@ -1,7 +1,3 @@
-//
-// Created by Jonas on 2019-11-14.
-//
-
 #ifndef BLOCKCHAINV2_BLOCKCHAIN_H
 #define BLOCKCHAINV2_BLOCKCHAIN_H
 

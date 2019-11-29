@@ -1,7 +1,3 @@
-//
-// Created by Jonas on 2019-11-14.
-//
-
 #ifndef BLOCKCHAINV2_BLOCK_H
 #define BLOCKCHAINV2_BLOCK_H
 
@@ -35,6 +31,8 @@ public:
     void RemoveLastTransaction();
 
     vector<string> GetLastTransaction();
+
+    void create_merkle();
 private:
     time_t _Time;
     string _Version;

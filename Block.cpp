@@ -1,6 +1,3 @@
-//
-// Created by Jonas on 2019-11-14.
-//
 #include <time.h>
 #include "Block.h"
 #include "Hash.h"
@@ -99,4 +96,38 @@ vector<string> Block::GetLastTransaction()
 void Block::RemoveLastTransaction()
 {
     _Transactions.pop_back();
+}
+
+void Block::create_merkle()
+{
+    vector<string> merkle, merkle2;
+    for(int i = 0; i < _Transactions.size(); i++)
+    {
+        merkle.push_back( _Transactions[i][0]);
+    }
+
+
+    // Stop if hash list is empty or contains one element
+    if (merkle.empty())
+        _MarkelHash = "1234567890abcdeffedcba09876543211234567890abcdeffedbca0987654321";
+    else if (merkle.size() == 1)
+        _MarkelHash = merkle[0];
+
+    // While there is more than 1 hash in the list, keep looping...
+    while (merkle.size() > 1)
+    {
+        merkle2.clear();
+        // If number of hashes is odd, duplicate last hash in the list.
+        if (merkle.size() % 2 != 0)
+            merkle.push_back(merkle.back());
+        // List size is now even.
+        for(int i = 0; i < merkle.size(); i+=2)
+        {
+            merkle2.push_back(Hash64(merkle[i] + merkle[i+1])) ;
+        }
+
+        merkle = merkle2;
+    }
+    // Finally we end up with a single item.
+    _MarkelHash = merkle[0];
 }
